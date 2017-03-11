@@ -37,9 +37,10 @@ class Add(Node):
         Node.__init__(self, [x, y])
 
     def forward(self, value=None):
-        x = self.inbound_nodes[0].value
-        y = self.inbound_nodes[1].value
-        self.value = x + y
+        self.value = 0
+        for node in self.inbound_nodes:
+            if node.value is not None:
+                self.value += node.value
 
 
 def topological_sort(feed_dict):
