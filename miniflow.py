@@ -31,6 +31,17 @@ class Input(Node):
             self.value = value
 
 
+class Add(Node):
+
+    def __init__(self, x, y):
+        Node.__init__(self, [x, y])
+
+    def forward(self, value=None):
+        x = self.inbound_nodes[0].value
+        y = self.inbound_nodes[1].value
+        self.value = x + y
+
+
 def topological_sort(feed_dict):
     """
     Sort generic nodes in topological order using Kahn's Algorithm.
