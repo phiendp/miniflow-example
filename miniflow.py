@@ -59,6 +59,18 @@ class Linear(Node):
         self.value = np.dot(X, W) + b
 
 
+class Sigmoid(Node):
+
+    def __init__(self, node):
+        Node.__init__(self, [node])
+
+    def _sigmoid(self, x):
+        return 1. / (1. + np.exp(-x))
+
+    def forward(self):
+        self.value = self._sigmoid(self.inbound_nodes[0].value)
+
+
 def topological_sort(feed_dict):
     """
     Sort generic nodes in topological order using Kahn's Algorithm.
