@@ -36,7 +36,7 @@ class Add(Node):
     def __init__(self, x, y):
         Node.__init__(self, [x, y])
 
-    def forward(self, value=None):
+    def forward(self):
         self.value = 0
         for node in self.inbound_nodes:
             if node.value is not None:
