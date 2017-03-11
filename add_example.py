@@ -1,5 +1,6 @@
 """
 This script builds and runs a graph with miniflow.
+
 """
 
 from miniflow import Input, Add

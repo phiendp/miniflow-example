@@ -43,6 +43,21 @@ class Add(Node):
                 self.value += node.value
 
 
+class Linear(Node):
+
+    def __init__(self, inputs, weights, bias):
+        Node.__init__(self, [inputs, weights, bias])
+
+    def forward(self):
+        inputs = self.inbound_nodes[0].value
+        weights = self.inbound_nodes[1].value
+        bias = self.inbound_nodes[2].value
+        self.value = bias
+
+        for w, x in zip(inputs, weights):
+            self.value += w * x
+
+
 def topological_sort(feed_dict):
     """
     Sort generic nodes in topological order using Kahn's Algorithm.
