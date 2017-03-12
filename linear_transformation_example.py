@@ -9,7 +9,7 @@ Test your code here!
 """
 
 import numpy as np
-from miniflow import *
+from lib.miniflow import *
 
 X, W, b = Input(), Input(), Input()
 
@@ -23,7 +23,7 @@ b_ = np.array([-3., -5])
 feed_dict = {X: X_, W: W_, b: b_}
 
 graph = topological_sort(feed_dict)
-output = forward_pass(g, graph)
+output = forward_pass(f, graph)
 
 """
 Output should be:

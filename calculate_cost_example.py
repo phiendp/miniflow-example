@@ -6,7 +6,7 @@ with this script to test your network.
 """
 
 import numpy as np
-from miniflow import *
+from lib.miniflow import *
 
 y, a = Input(), Input()
 cost = MSE(y, a)
@@ -17,7 +17,7 @@ a_ = np.array([4.5, 5, 10])
 feed_dict = {y: y_, a: a_}
 graph = topological_sort(feed_dict)
 # forward pass
-forward_pass(graph)
+forward_pass_with_graph(graph)
 
 """
 Expected output

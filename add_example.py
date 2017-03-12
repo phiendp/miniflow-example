@@ -3,8 +3,8 @@ This script builds and runs a graph with miniflow.
 
 """
 
-from miniflow import Input, Add
-from miniflow import topological_sort, forward_pass
+from lib.miniflow import Input, Add
+from lib.miniflow import topological_sort, forward_pass
 
 
 x, y = Input(), Input()
