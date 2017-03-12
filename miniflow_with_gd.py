@@ -153,13 +153,8 @@ class Sigmoid(Node):
         for n in self.outbound_nodes:
             # Get the partial of the cost with respect to this node.
             grad_cost = n.gradients[self]
-            """
-            TODO: Your code goes here!
-
-            Set the gradients property to the gradients with respect to each input.
-
-            NOTE: See the Linear node and MSE node for examples.
-            """
+            sigmoid = self.value
+            self.gradients[self.inbound_nodes[0]] += sigmoid * (1 - sigmoid) * grad_cost
 
 
 class MSE(Node):
